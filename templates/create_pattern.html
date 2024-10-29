@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="mb-4">Create New Pattern</h2>
+    <form method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.image.label(class="form-label") }}
+            {{ form.image(class="form-control-file") }}
+        </div>
+        <div class="form-group">
+            {{ form.instructions.label(class="form-label") }}
+            {{ form.instructions(class="form-control", rows=5) }}
+        </div>
+        <button type="submit" class="btn btn-primary">Create Pattern</button>
+    </form>
+{% endblock %}

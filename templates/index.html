@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="mb-4">All Patterns</h2>
+    <div class="row">
+        {% for pattern in patterns %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='images/' + pattern.image) }}" class="card-img-top" alt="{{ pattern.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pattern.name }}</h5>
+                        <p class="card-text">{{ pattern.description }}</p>
+                        <a href="{{ url_for('pattern', pattern_id=pattern.id) }}" class="btn btn-primary">View Pattern</a>
+                        {% if current_user.is_authenticated and current_user.id == pattern.user_id %}
+                            <form action="{{ url_for('delete', pattern_id=pattern.id) }}" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
