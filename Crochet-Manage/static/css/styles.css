@@ -1,0 +1,16 @@
+/* style.css */
+body {
+    padding-top: 60px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.navbar-nav.ml-auto > li > a {
+    color: #fff;
+}
+
+.navbar-nav.ml-auto > li > a:hover {
+    color: #f8f9fa;
+}
